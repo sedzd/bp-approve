@@ -20,3 +20,18 @@ export const decline = api(
     };
   },
 ); 
+
+
+
+
+export const webhook = api(
+  { method: "POST", path: "/webhook", expose: true },
+  async (payload: any): Promise<{ status: string, received: any }> => {
+    console.log('Webhook received payload:', payload);
+    
+    return {
+      status: 'OK',
+      received: payload
+    };
+  },
+); 
